@@ -136,8 +136,20 @@ JAZZMIN_SETTINGS = {
     },
 }
 
-# Escolha uma cor mais profissional (azul médico)
+
 JAZZMIN_UI_TWEAKS = {
-    "theme": "flatly",
-    "dark_mode_theme": "darkly",
+    "theme": "simplex", # Tema ultra limpo e minimalista
+    "dark_mode_theme": None,
+    "navbar-variant": "navbar-dark",
+    "navbar": "navbar-info", # Azul esverdeado suave (cor de hospital moderno)
+    "sidebar": "sidebar-light-info", # Lateral clara para parecer mais "espaçoso"
+    "sidebar_nav_flat_style": True, # Visual plano, sem sombras pesadas
+    "brand_colour": "navbar-info",
+    "accent": "accent-info",
+    "button_classes": {
+        "primary": "btn-info", # Botões em azul suave
+        "secondary": "btn-secondary",
+        "success": "btn-success",
+        "danger": "btn-danger"
+    }
 }

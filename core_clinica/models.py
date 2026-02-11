@@ -17,3 +17,17 @@ class Paciente(models.Model):
 
     def __str__(self):
         return self.nome
+    
+class Consulta(models.Model):
+    paciente = models.ForeignKey(Paciente, on_delete=models.CASCADE)
+    medico = models.ForeignKey(Medico, on_delete=models.CASCADE)
+    data = models.DateField()
+    horario = models.TimeField()
+    descricao = models.TextField(blank=True, null=True, verbose_name="Observações Médicas")
+
+    def __str__(self):
+        return f"{self.paciente} - {self.medico} em {self.data}"
+
+    class Meta:
+        verbose_name = "Consulta"
+        verbose_name_plural = "Consultas"
