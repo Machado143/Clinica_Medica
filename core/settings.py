@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'jazzmin',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -117,3 +118,26 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
 STATIC_URL = 'static/'
+
+JAZZMIN_SETTINGS = {
+    "site_title": "Clínica Médica",
+    "site_header": "Administração Clínica",
+    "site_brand": "Sistema Med",
+    "welcome_sign": "Bem-vindo ao Sistema de Gestão da Clínica",
+    "copyright": "Minha Clínica Ltda",
+    "search_model": ["core_clinica.Paciente"],
+    "show_sidebar": True,
+    "navigation_expanded": True,
+    "icons": {
+        "auth": "fas fa-users-cog",
+        "auth.user": "fas fa-user",
+        "core_clinica.Medico": "fas fa-user-md",
+        "core_clinica.Paciente": "fas fa-hospital-user",
+    },
+}
+
+# Escolha uma cor mais profissional (azul médico)
+JAZZMIN_UI_TWEAKS = {
+    "theme": "flatly",
+    "dark_mode_theme": "darkly",
+}
