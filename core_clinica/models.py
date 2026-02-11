@@ -1,5 +1,6 @@
 from django.db import models
 
+
 class Medico(models.Model):
     nome = models.CharField(max_length=100)
     crm = models.CharField(max_length=20, unique=True)
@@ -14,6 +15,7 @@ class Paciente(models.Model):
     telefone = models.CharField(max_length=20)
     data_nascimento = models.DateField()
     email = models.EmailField()
+    
 
     def __str__(self):
         return self.nome
@@ -24,6 +26,7 @@ class Consulta(models.Model):
     data = models.DateField()
     horario = models.TimeField()
     descricao = models.TextField(blank=True, null=True, verbose_name="Observações Médicas")
+    valor_consulta = models.DecimalField(max_digits=8, decimal_places=2, default=0.0)
 
     def __str__(self):
         return f"{self.paciente} - {self.medico} em {self.data}"
