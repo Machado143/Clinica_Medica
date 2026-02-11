@@ -25,8 +25,10 @@ class Consulta(models.Model):
     medico = models.ForeignKey(Medico, on_delete=models.CASCADE)
     data = models.DateField()
     horario = models.TimeField()
-    descricao = models.TextField(blank=True, null=True, verbose_name="Observações Médicas")
     valor_consulta = models.DecimalField(max_digits=8, decimal_places=2, default=0.0)
+    descricao = models.TextField(blank=True, null=True, verbose_name="Observações Médicas")
+    diagnostico = models.TextField(blank=True, null=True, verbose_name="Diagnóstico/Sintomas")
+    prescricao = models.TextField(blank=True, null=True, verbose_name="Prescrição Médica")
 
     def __str__(self):
         return f"{self.paciente} - {self.medico} em {self.data}"
@@ -34,3 +36,4 @@ class Consulta(models.Model):
     class Meta:
         verbose_name = "Consulta"
         verbose_name_plural = "Consultas"
+        
