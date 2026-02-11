@@ -1,16 +1,16 @@
-import pandas as pd
+from django.db.models import Sum, Count
+
 from .models import Consulta
 
-def relatorio_faturamento_por_medico():
-    # 1. Transformamos o banco de dados em um DataFrame do Pandas
-    df = Consulta.pdobjects.all().to_dataframe(
-        fieldnames=['medico__nome', 'valor_consulta', 'data']
-    )
-    
-    if df.empty:
-        return "Nenhum dado encontrado."
 
-    # 2. Usamos o poder do Pandas para agrupar e somar
-    faturamento = df.groupby('medico__nome')['valor_consulta'].sum().reset_index()
-    
-    return faturamento
+def relatorio_faturamento_por_medico():
+    """Retorna um queryset com o faturamento agrupado por médico."""
+    qs = (
+        Consulta.objects.values("medico__nome", "medico__especialidade")
+        .annotate(
+            total=Sum("valor_consulta"),
+            qtd=Count("id"),
+        )
+        .order_by("-total")
+    )
+    return qs

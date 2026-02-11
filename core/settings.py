@@ -133,6 +133,7 @@ JAZZMIN_SETTINGS = {
         "auth.user": "fas fa-user",
         "core_clinica.Medico": "fas fa-user-md",
         "core_clinica.Paciente": "fas fa-hospital-user",
+        "core_clinica.Consulta": "fas fa-notes-medical",
     },
 }
 
